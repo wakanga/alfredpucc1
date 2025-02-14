@@ -60,14 +60,15 @@
 
     <script>
         function markAvailable() {
-            fetch('http://192.168.0.173:5000/mark-available')
+            fetch('https://alfredpucc1.onrender.com/mark-available')
                 .then(response => response.text())
                 .then(data => alert(data))
                 .catch(error => alert('Error updating PUCC status'));
         }
 
         function markUnavailable() {
-            fetch('http://192.168.0.173:5000/mark-unavailable')
+             fetch('https://alfredpucc1.onrender.com/mark-unavailable')
+
                 .then(response => response.text())
                 .then(data => alert(data))
                 .catch(error => alert('Error updating PUCC status'));
