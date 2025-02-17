@@ -1,0 +1,150 @@
+Xsession: X session started for alfredpi1 at Mon 17 Feb 14:30:47 AEDT 2025
+dbus-update-activation-environment: setting DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+xrdb: Can't open display ''
+xhost:  unable to open display ""
+dbus-update-activation-environment: setting USER=alfredpi1
+dbus-update-activation-environment: setting TEXTDOMAIN=Linux-PAM
+dbus-update-activation-environment: setting XDG_SESSION_TYPE=wayland
+dbus-update-activation-environment: setting HOME=/home/alfredpi1
+dbus-update-activation-environment: setting DESKTOP_SESSION=LXDE-pi-labwc
+dbus-update-activation-environment: setting XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0
+dbus-update-activation-environment: setting DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+dbus-update-activation-environment: setting LOGNAME=alfredpi1
+dbus-update-activation-environment: setting XDG_SESSION_CLASS=user
+dbus-update-activation-environment: setting PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games
+dbus-update-activation-environment: setting XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session0
+dbus-update-activation-environment: setting XDG_RUNTIME_DIR=/run/user/1000
+dbus-update-activation-environment: setting LANG=en_GB.UTF-8
+dbus-update-activation-environment: setting XDG_SESSION_DESKTOP=LXDE-pi-labwc
+dbus-update-activation-environment: setting XDG_GREETER_DATA_DIR=/var/lib/lightdm/data/alfredpi1
+dbus-update-activation-environment: setting SHELL=/bin/bash
+dbus-update-activation-environment: setting GDMSESSION=LXDE-pi-labwc
+dbus-update-activation-environment: setting NO_AT_BRIDGE=1
+dbus-update-activation-environment: setting GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
+dbus-update-activation-environment: setting PWD=/home/alfredpi1
+00:00:00.295 [ERROR] [EGL] command: eglQueryDeviceStringEXT, error: EGL_BAD_PARAMETER (0x300c), message: "eglQueryDeviceStringEXT"
+00:00:00.300 [ERROR] [EGL] command: eglQueryDeviceStringEXT, error: EGL_BAD_PARAMETER (0x300c), message: "eglQueryDeviceStringEXT"
+00:00:07.567 [ERROR] [backend/drm/util.c:65] Failed to parse EDID
+applying profile '<anonymous at line 1, col 9>'
+applying profile output 'DSI-1' on connected head 'DSI-1'
+/usr/bin/sbtest: 2: .: cannot open /usr/share/squeekboard/output: No such file
+configuration for profile '<anonymous at line 1, col 9>' applied
+Failure: No such entity
+pgrep: pattern that searches for process name longer than 15 characters will result in zero matches
+Try `pgrep -f' option to match against the complete command line.
+pgrep: pattern that searches for process name longer than 15 characters will result in zero matches
+Try `pgrep -f' option to match against the complete command line.
+xsettingsd: Loaded 19 settings from /home/alfredpi1/.config/xsettingsd/xsettingsd.conf
+
+(polkit-mate-authentication-agent-1:1022): GLib-CRITICAL **: 14:30:59.478: g_variant_new_string: assertion 'string != NULL' failed
+
+(polkit-mate-authentication-agent-1:1022): polkit-mate-1-WARNING **: 14:30:59.479: Failed to register client: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.gnome.SessionManager was not provided by any .service files
+The XKEYBOARD keymap compiler (xkbcomp) reports:
+> Warning:          Unsupported maximum keycode 708, clipping.
+>                   X11 cannot support keycodes above 255.
+Errors from xkbcomp are not fatal to the X server
+xsettingsd: Created window 0x400001 on screen 0 with timestamp 28892
+xsettingsd: Selection _XSETTINGS_S0 is owned by 0x0
+xsettingsd: Took ownership of selection _XSETTINGS_S0
+xsettingsd: Ignoring event of type 33
+II 17-02-25 14:31:01.079 - [src/panel/config/file.cpp:576] Reading XML configuration options from directory /usr/share/wf-panel-pi/metadata
+II 17-02-25 14:31:01.091 - [src/panel/config/file.cpp:589] Reading XML configuration options from file /usr/share/wf-panel-pi/metadata/cputemp.xml
+II 17-02-25 14:31:01.102 - [src/panel/config/file.cpp:589] Reading XML configuration options from file /usr/share/wf-panel-pi/metadata/gpu.xml
+II 17-02-25 14:31:01.108 - [src/panel/config/file.cpp:589] Reading XML configuration options from file /usr/share/wf-panel-pi/metadata/window-list.xml
+II 17-02-25 14:31:01.118 - [src/panel/config/file.cpp:589] Reading XML configuration options from file /usr/share/wf-panel-pi/metadata/notify.xml
+II 17-02-25 14:31:01.130 - [src/panel/config/file.cpp:589] Reading XML configuration options from file /usr/share/wf-panel-pi/metadata/smenu.xml
+II 17-02-25 14:31:01.140 - [src/panel/config/file.cpp:589] Reading XML configuration options from file /usr/share/wf-panel-pi/metadata/updater.xml
+II 17-02-25 14:31:01.146 - [src/panel/config/file.cpp:589] Reading XML configuration options from file /usr/share/wf-panel-pi/metadata/tray.xml
+II 17-02-25 14:31:01.148 - [src/panel/config/file.cpp:589] Reading XML configuration options from file /usr/share/wf-panel-pi/metadata/panel-pi.xml
+II 17-02-25 14:31:01.150 - [src/panel/config/file.cpp:589] Reading XML configuration options from file /usr/share/wf-panel-pi/metadata/clock.xml
+II 17-02-25 14:31:01.151 - [src/panel/config/file.cpp:589] Reading XML configuration options from file /usr/share/wf-panel-pi/metadata/ejecter.xml
+II 17-02-25 14:31:01.153 - [src/panel/config/file.cpp:589] Reading XML configuration options from file /usr/share/wf-panel-pi/metadata/launchers.xml
+II 17-02-25 14:31:01.154 - [src/panel/config/file.cpp:589] Reading XML configuration options from file /usr/share/wf-panel-pi/metadata/cpu.xml
+II 17-02-25 14:31:01.156 - [src/panel/config/file.cpp:589] Reading XML configuration options from file /usr/share/wf-panel-pi/metadata/batt.xml
+** Message: 14:31:03.647: batt: battery 0 not found
+** Message: 14:31:04.000: up: Checking for updates
+/usr/share/system-config-printer/applet.py:366: Warning: Source ID 13 was not found when attempting to remove it
+  GLib.source_remove (self.timer)
+** Message: 14:31:34.895: up: Cache updated - comparing versions
+** Message: 14:31:39.667: up: Check complete - no updates available
+The XKEYBOARD keymap compiler (xkbcomp) reports:
+> Warning:          Unsupported maximum keycode 708, clipping.
+>                   X11 cannot support keycodes above 255.
+Errors from xkbcomp are not fatal to the X server
+The XKEYBOARD keymap compiler (xkbcomp) reports:
+> Warning:          Unsupported maximum keycode 708, clipping.
+>                   X11 cannot support keycodes above 255.
+Errors from xkbcomp are not fatal to the X server
+00:12:22.273 [ERROR] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 209, value 6291490
+00:12:22.273 [ERROR] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 212, value 6291490
+00:12:22.273 [ERROR] [xwayland/xwm.c:1633] xcb error: op DeleteProperty (no minor), code Window (no extension), sequence 213, value 6291490
+00:12:27.410 [ERROR] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 321, value 6291534
+00:12:27.411 [ERROR] [xwayland/xwm.c:1633] xcb error: op ConfigureWindow (no minor), code Window (no extension), sequence 327, value 6291534
+00:12:27.411 [ERROR] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 330, value 6291534
+00:12:27.411 [ERROR] [xwayland/xwm.c:1633] xcb error: op DeleteProperty (no minor), code Window (no extension), sequence 331, value 6291534
+00:12:31.040 [ERROR] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 391, value 6291597
+00:12:31.041 [ERROR] [xwayland/xwm.c:1633] xcb error: op ConfigureWindow (no minor), code Window (no extension), sequence 397, value 6291597
+00:12:31.041 [ERROR] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 400, value 6291597
+00:12:31.041 [ERROR] [xwayland/xwm.c:1633] xcb error: op DeleteProperty (no minor), code Window (no extension), sequence 401, value 6291597
+00:12:47.120 [ERROR] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 461, value 6291672
+00:12:47.121 [ERROR] [xwayland/xwm.c:1633] xcb error: op ConfigureWindow (no minor), code Window (no extension), sequence 467, value 6291672
+00:12:47.121 [ERROR] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 470, value 6291672
+00:12:47.121 [ERROR] [xwayland/xwm.c:1633] xcb error: op DeleteProperty (no minor), code Window (no extension), sequence 471, value 6291672
+00:12:50.948 [ERROR] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 531, value 6291726
+00:12:50.963 [ERROR] [xwayland/xwm.c:1633] xcb error: op ConfigureWindow (no minor), code Window (no extension), sequence 537, value 6291726
+00:12:50.963 [ERROR] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 540, value 6291726
+00:12:50.964 [ERROR] [xwayland/xwm.c:1633] xcb error: op DeleteProperty (no minor), code Window (no extension), sequence 541, value 6291726
+00:15:51.455 [ERROR] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 554, value 6291490
+00:15:51.456 [ERROR] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 557, value 6291490
+00:15:51.456 [ERROR] [xwayland/xwm.c:1633] xcb error: op DeleteProperty (no minor), code Window (no extension), sequence 558, value 6291490
+00:15:55.611 [ERROR] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 671, value 6291532
+00:15:55.612 [ERROR] [xwayland/xwm.c:1633] xcb error: op ConfigureWindow (no minor), code Window (no extension), sequence 677, value 6291532
+00:15:55.612 [ERROR] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 680, value 6291532
+00:15:55.612 [ERROR] [xwayland/xwm.c:1633] xcb error: op DeleteProperty (no minor), code Window (no extension), sequence 681, value 6291532
+00:15:59.109 [ERROR] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 741, value 6291589
+00:15:59.110 [ERROR] [xwayland/xwm.c:1633] xcb error: op ConfigureWindow (no minor), code Window (no extension), sequence 747, value 6291589
+00:15:59.110 [ERROR] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 750, value 6291589
+00:15:59.110 [ERROR] [xwayland/xwm.c:1633] xcb error: op DeleteProperty (no minor), code Window (no extension), sequence 751, value 6291589
+00:17:28.477 [ERROR] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 811, value 6291657
+00:17:28.489 [ERROR] [xwayland/xwm.c:1633] xcb error: op ConfigureWindow (no minor), code Window (no extension), sequence 817, value 6291657
+00:17:28.489 [ERROR] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 820, value 6291657
+00:17:28.489 [ERROR] [xwayland/xwm.c:1633] xcb error: op DeleteProperty (no minor), code Window (no extension), sequence 821, value 6291657
+00:17:35.885 [ERROR] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 881, value 6291706
+00:17:35.896 [ERROR] [xwayland/xwm.c:1633] xcb error: op ConfigureWindow (no minor), code Window (no extension), sequence 887, value 6291706
+00:17:35.897 [ERROR] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 890, value 6291706
+00:17:35.897 [ERROR] [xwayland/xwm.c:1633] xcb error: op DeleteProperty (no minor), code Window (no extension), sequence 891, value 6291706
+00:17:37.577 [ERROR] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 951, value 6291762
+00:17:37.578 [ERROR] [xwayland/xwm.c:1633] xcb error: op ConfigureWindow (no minor), code Window (no extension), sequence 957, value 6291762
+00:17:37.578 [ERROR] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 960, value 6291762
+00:17:37.578 [ERROR] [xwayland/xwm.c:1633] xcb error: op DeleteProperty (no minor), code Window (no extension), sequence 961, value 6291762
+00:18:21.654 [ERROR] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 1021, value 6291818
+00:18:21.657 [ERROR] [xwayland/xwm.c:1633] xcb error: op ConfigureWindow (no minor), code Window (no extension), sequence 1027, value 6291818
+00:18:21.657 [ERROR] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 1030, value 6291818
+00:18:21.657 [ERROR] [xwayland/xwm.c:1633] xcb error: op DeleteProperty (no minor), code Window (no extension), sequence 1031, value 6291818
+00:21:44.146 [ERROR] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 1091, value 6291908
+00:21:44.149 [ERROR] [xwayland/xwm.c:1633] xcb error: op ConfigureWindow (no minor), code Window (no extension), sequence 1097, value 6291908
+00:21:44.149 [ERROR] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 1100, value 6291908
+00:21:44.149 [ERROR] [xwayland/xwm.c:1633] xcb error: op DeleteProperty (no minor), code Window (no extension), sequence 1101, value 6291908
+00:22:49.866 [ERROR] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 1161, value 6291977
+00:22:49.876 [ERROR] [xwayland/xwm.c:1633] xcb error: op ConfigureWindow (no minor), code Window (no extension), sequence 1167, value 6291977
+00:22:49.876 [ERROR] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 1170, value 6291977
+00:22:49.876 [ERROR] [xwayland/xwm.c:1633] xcb error: op DeleteProperty (no minor), code Window (no extension), sequence 1171, value 6291977
+00:24:54.331 [ERROR] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 1184, value 6291490
+00:24:54.331 [ERROR] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 1187, value 6291490
+00:24:54.331 [ERROR] [xwayland/xwm.c:1633] xcb error: op DeleteProperty (no minor), code Window (no extension), sequence 1188, value 6291490
+00:25:04.171 [ERROR] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 1296, value 6291532
+00:25:04.172 [ERROR] [xwayland/xwm.c:1633] xcb error: op ConfigureWindow (no minor), code Window (no extension), sequence 1302, value 6291532
+00:25:04.172 [ERROR] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 1305, value 6291532
+00:25:04.172 [ERROR] [xwayland/xwm.c:1633] xcb error: op DeleteProperty (no minor), code Window (no extension), sequence 1306, value 6291532
+00:25:07.493 [ERROR] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 1366, value 6291591
+00:25:07.494 [ERROR] [xwayland/xwm.c:1633] xcb error: op ConfigureWindow (no minor), code Window (no extension), sequence 1372, value 6291591
+00:25:07.495 [ERROR] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 1375, value 6291591
+00:25:07.495 [ERROR] [xwayland/xwm.c:1633] xcb error: op DeleteProperty (no minor), code Window (no extension), sequence 1376, value 6291591
+00:25:18.251 [ERROR] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 1436, value 6291661
+00:25:18.255 [ERROR] [xwayland/xwm.c:1633] xcb error: op ConfigureWindow (no minor), code Window (no extension), sequence 1442, value 6291661
+00:25:18.256 [ERROR] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 1445, value 6291661
+00:25:18.256 [ERROR] [xwayland/xwm.c:1633] xcb error: op DeleteProperty (no minor), code Window (no extension), sequence 1446, value 6291661
+00:27:55.521 [ERROR] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 1506, value 6291733
+00:27:55.533 [ERROR] [xwayland/xwm.c:1633] xcb error: op ConfigureWindow (no minor), code Window (no extension), sequence 1512, value 6291733
+00:27:55.533 [ERROR] [xwayland/xwm.c:1633] xcb error: op ChangeProperty (no minor), code Window (no extension), sequence 1515, value 6291733
+00:27:55.533 [ERROR] [xwayland/xwm.c:1633] xcb error: op DeleteProperty (no minor), code Window (no extension), sequence 1516, value 6291733
