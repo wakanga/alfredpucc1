@@ -1,0 +1,30 @@
+name: Run Log Analysis
+
+on:
+  workflow_dispatch:  # Allows manual execution from GitHub Actions
+  schedule:
+    - cron: '0 3 * * *'  # Runs daily at 3 AM UTC
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set Up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.9'
+
+      - name: Install Dependencies
+        run: pip install pandas matplotlib requests
+
+      - name: Run Log Analysis
+        run: python analyze_logs.py
+
+      - name: Upload Analysis Reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: analysis-reports
+          path: "*.png"
