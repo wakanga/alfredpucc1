@@ -1,71 +1,91 @@
 import os
+import requests
 import pandas as pd
 import matplotlib.pyplot as plt
 from datetime import datetime, timedelta
+from io import StringIO
 
-# Path to the logs directory
-logs_dir = 'logs'
+# GitHub Repository details
+GITHUB_REPO = "https://raw.githubusercontent.com/wakanga/alfredpucc1/main/logs/"
+LOG_PREFIX = "pucc_logs_"
 
-def read_most_recent_log(logs_dir):
-    log_files = [f for f in os.listdir(logs_dir) if f.endswith('.csv')]
-    if not log_files:
-        raise FileNotFoundError("No log files found in the logs directory.")
-    # Assuming log files are named in a way that sorting them lexicographically gives the most recent file last
-    most_recent_log = sorted(log_files)[-1]
-    return pd.read_csv(os.path.join(logs_dir, most_recent_log))
+# Fetch latest log file from GitHub
+def fetch_latest_log():
+    current_year_month = datetime.now().strftime('%Y_%m')
+    log_url = f"{GITHUB_REPO}{LOG_PREFIX}{current_year_month}.csv"
+    
+    response = requests.get(log_url)
+    if response.status_code == 200:
+        log_data = StringIO(response.text)
+        print(f"Fetched log file: {log_url}")
+        return pd.read_csv(log_data)
+    else:
+        raise FileNotFoundError(f"Could not retrieve log file from {log_url}")
 
+# Function to analyze logs
 def analyze_logs(logs):
     current_time = datetime.now()
-    logs['Timestamp'] = pd.to_datetime(logs['Timestamp'])
-
-    # Filter transitions from Available to Unavailable
-    available_to_unavailable = logs[(logs['Previous Status'] == 'Available') & (logs['New Status'] == 'Unavailable')]
+    logs['Timestamp'] = pd.to_datetime(logs['Timestamp'], errors='coerce')
+    logs.dropna(subset=['Timestamp'], inplace=True)
     
-    # Analyze the last 7 days
-    last_7_days = available_to_unavailable[available_to_unavailable['Timestamp'] >= current_time - timedelta(days=7)]
+    # Filter only manually triggered transitions from Available to Unavailable
+    manual_transitions = logs[(logs['Previous Status'] == 'Available') & 
+                              (logs['New Status'] == 'Unavailable') &
+                              (~logs['Reason'].str.contains("Auto-switch", na=False))]
     
-    # Analyze the entire log file if it spans more than 7 days
-    if logs['Timestamp'].max() - logs['Timestamp'].min() > timedelta(days=7):
-        entire_period = True
-    else:
-        entire_period = False
+    last_7_days = manual_transitions[manual_transitions['Timestamp'] >= current_time - timedelta(days=7)]
+    entire_period = logs['Timestamp'].max() - logs['Timestamp'].min() > timedelta(days=7)
     
-    # General statements
     print("Analysis for the last 7 days:")
-    total_transitions_7_days = len(last_7_days)
-    reasons_counts_7_days = last_7_days['Reason'].value_counts()
-    print(f"Total transitions from Available to Unavailable: {total_transitions_7_days}")
-    print("Reasons for transitions:")
-    print(reasons_counts_7_days)
+    print(f"Total manual transitions from Available to Unavailable: {len(last_7_days)}")
+    print(last_7_days['Reason'].value_counts())
+    plot_reason_counts(last_7_days, 'Last 7 Days')
+    
+    if entire_period:
+        print("\nAnalysis for the entire log file:")
+        print(f"Total manual transitions from Available to Unavailable: {len(manual_transitions)}")
+        print(manual_transitions['Reason'].value_counts())
+        plot_reason_counts(manual_transitions, 'Entire Log File')
+        compare_last_7_days_to_entire_log(last_7_days, manual_transitions)
 
-    # Plot the reasons for transitions in the last 7 days
+# Function to plot reason counts
+def plot_reason_counts(df, title_suffix):
+    if df.empty:
+        print(f"No manual transitions recorded for {title_suffix}.")
+        return
+    
+    reason_counts = df['Reason'].value_counts()
     plt.figure(figsize=(10, 6))
-    reasons_counts_7_days.plot(kind='bar')
-    plt.title('Reasons for Status Change from Available to Unavailable (Last 7 Days)')
+    reason_counts.plot(kind='bar', color='steelblue')
+    plt.title(f'Manual Reasons for Status Change ({title_suffix})')
     plt.xlabel('Reason')
     plt.ylabel('Count')
     plt.xticks(rotation=45)
-    plt.savefig('status_change_analysis_last_7_days.png')
+    plt.grid(axis='y', linestyle='--', alpha=0.7)
+    plt.savefig(f'status_change_analysis_{title_suffix.lower().replace(" ", "_")}.png')
     plt.show()
 
-    if entire_period:
-        print("\nAnalysis for the entire log file:")
-        total_transitions = len(available_to_unavailable)
-        reasons_counts = available_to_unavailable['Reason'].value_counts()
-        print(f"Total transitions from Available to Unavailable: {total_transitions}")
-        print("Reasons for transitions:")
-        print(reasons_counts)
+# Function to compare the last 7 days with the entire log file
+def compare_last_7_days_to_entire_log(last_7_days, entire_log):
+    if last_7_days.empty or entire_log.empty:
+        print("Insufficient data for comparison.")
+        return
+    
+    last_7_days_counts = last_7_days['Reason'].value_counts()
+    entire_log_counts = entire_log['Reason'].value_counts()
+    
+    comparison_df = pd.DataFrame({'Last 7 Days': last_7_days_counts, 'Entire Log': entire_log_counts}).fillna(0)
+    
+    comparison_df.plot(kind='bar', figsize=(10, 6))
+    plt.title('Comparison of Manual Reasons for Status Change')
+    plt.xlabel('Reason')
+    plt.ylabel('Count')
+    plt.xticks(rotation=45)
+    plt.grid(axis='y', linestyle='--', alpha=0.7)
+    plt.legend()
+    plt.savefig('status_change_comparison.png')
+    plt.show()
 
-        # Plot the reasons for transitions in the entire log file
-        plt.figure(figsize=(10, 6))
-        reasons_counts.plot(kind='bar')
-        plt.title('Reasons for Status Change from Available to Unavailable (Entire Log File)')
-        plt.xlabel('Reason')
-        plt.ylabel('Count')
-        plt.xticks(rotation=45)
-        plt.savefig('status_change_analysis_entire_log.png')
-        plt.show()
-
-if __name__ == '__main__':
-    logs = read_most_recent_log(logs_dir)
+if __name__ == "__main__":
+    logs = fetch_latest_log()
     analyze_logs(logs)
