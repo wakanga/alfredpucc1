@@ -1,12 +1,12 @@
-permissions:
-  contents: write
-
 name: Analyze PUCC Logs
 
 on:
   schedule:
     - cron: '0 0 * * *'  # Runs daily at 00:00 UTC (midnight)
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   analyze:
