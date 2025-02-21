@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: write  # Allows GitHub Actions to push reports to GitHub Pages
 
 jobs:
   analyze:
@@ -26,7 +26,7 @@ jobs:
           ls logs/
 
       - name: Install Dependencies
-        run: pip install pandas matplotlib
+        run: pip install pandas matplotlib requests
 
       - name: Run Log Analysis
         run: python analyze_pucc_logs.py
