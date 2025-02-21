@@ -39,6 +39,10 @@ plt.xticks(rotation=45)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.savefig("daily_uptime_percentage.png")
 
+# Convert downtime and uptime data to HTML tables
+daily_downtime_html = daily_downtime.to_frame().rename(columns={"Duration": "Total Minutes Offline"}).to_html()
+daily_uptime_html = daily_status_counts[['Uptime %']].to_html()
+
 # Generate HTML report
 html_report = f"""
 <!DOCTYPE html>
@@ -48,18 +52,23 @@ html_report = f"""
   <style>
     body {{ font-family: Arial, sans-serif; margin: 20px; }}
     h1, h2 {{ color: #333; }}
-    table {{ border-collapse: collapse; width: 50%; margin-bottom: 20px; }}
+    table {{ border-collapse: collapse; width: 60%; margin-bottom: 20px; }}
     th, td {{ border: 1px solid #ddd; padding: 8px; text-align: left; }}
     th {{ background-color: #f4f4f4; }}
+    p {{ font-size: 14px; color: #555; }}
     img {{ max-width: 100%; }}
   </style>
 </head>
 <body>
   <h1>PUCC Log Analysis Report</h1>
   <h2>Daily PUCC Downtime (Minutes)</h2>
+  <p>The table below shows how long PUCC was unavailable each day.</p>
+  {daily_downtime_html}
   <img src="daily_downtime.png" alt="Daily Downtime">
 
   <h2>Daily PUCC Uptime Percentage</h2>
+  <p>This table shows the percentage of time PUCC was available each day.</p>
+  {daily_uptime_html}
   <img src="daily_uptime_percentage.png" alt="Daily Uptime %">
 </body>
 </html>

@@ -6,18 +6,65 @@
   <style>
     body { font-family: Arial, sans-serif; margin: 20px; }
     h1, h2 { color: #333; }
-    table { border-collapse: collapse; width: 50%; margin-bottom: 20px; }
+    table { border-collapse: collapse; width: 60%; margin-bottom: 20px; }
     th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
     th { background-color: #f4f4f4; }
+    p { font-size: 14px; color: #555; }
     img { max-width: 100%; }
   </style>
 </head>
 <body>
   <h1>PUCC Log Analysis Report</h1>
   <h2>Daily PUCC Downtime (Minutes)</h2>
+  <p>The table below shows how long PUCC was unavailable each day.</p>
+  <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Total Minutes Offline</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2025-02-16</th>
+      <td>146.483333</td>
+    </tr>
+    <tr>
+      <th>2025-02-17</th>
+      <td>25.533333</td>
+    </tr>
+  </tbody>
+</table>
   <img src="daily_downtime.png" alt="Daily Downtime">
 
   <h2>Daily PUCC Uptime Percentage</h2>
+  <p>This table shows the percentage of time PUCC was available each day.</p>
+  <table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>New Status</th>
+      <th>Uptime %</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2025-02-16</th>
+      <td>44.444444</td>
+    </tr>
+    <tr>
+      <th>2025-02-17</th>
+      <td>47.368421</td>
+    </tr>
+  </tbody>
+</table>
   <img src="daily_uptime_percentage.png" alt="Daily Uptime %">
 </body>
 </html>
