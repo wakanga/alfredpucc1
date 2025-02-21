@@ -1,0 +1,47 @@
+Timestamp,Previous Status,New Status,Reason
+2025-02-16 21:00:00,Available,Unavailable,Auto-switch at configured time
+2025-02-16 22:05:26,Available,Unavailable,No staff
+2025-02-16 22:05:41,Unavailable,Available,I was notified it is available
+2025-02-16 22:08:19,Available,Unavailable,No staff
+2025-02-16 22:11:37,Unavailable,Available,It was marked as unavailable in error
+2025-02-16 22:11:47,Available,Unavailable,Not specified
+2025-02-16 22:51:32,Unavailable,Unavailable,It was marked as available in error
+2025-02-16 22:51:49,Unavailable,Unavailable,No staff
+2025-02-16 22:52:19,Unavailable,Unavailable,Not specified
+2025-02-16 22:52:28,Unavailable,Unavailable,No staff
+2025-02-16 23:02:08,Unavailable,Available,I was notified it is available
+2025-02-16 23:02:14,Available,Available,I was notified it is available
+2025-02-16 23:03:03,Available,Unavailable,Not specified
+2025-02-16 23:07:47,Unavailable,Available,I was notified it is available
+2025-02-16 23:08:01,Available,Available,It was marked as unavailable in error
+2025-02-16 23:08:04,Available,Available,I was notified it is available
+2025-02-16 23:11:46,Available,Unavailable,Not specified
+2025-02-16 23:11:50,Unavailable,Unavailable,Not specified
+2025-02-16 23:14:26,Unavailable,Available,I was notified it is available
+2025-02-16 23:20:45,Available,Unavailable,Not specified
+2025-02-16 23:20:49,Unavailable,Available,I was notified it is available
+2025-02-16 23:20:53,Available,Unavailable,Not specified
+2025-02-16 23:21:02,Unavailable,Available,It was marked as unavailable in error
+2025-02-16 23:47:36,Available,Unavailable,No staff
+2025-02-16 23:47:42,Unavailable,Available,I was notified it is available
+2025-02-16 23:47:44,Available,Unavailable,Full
+2025-02-16 23:47:50,Unavailable,Available,It was marked as unavailable in error
+2025-02-17 00:08:31,Available,Unavailable,Not specified
+2025-02-17 14:15:57,Unavailable,Available,I was notified it is available
+2025-02-17 14:16:00,Available,Unavailable,No staff
+2025-02-17 14:43:35,Unavailable,Available,I was notified it is available
+2025-02-17 14:43:38,Available,Unavailable,No staff
+2025-02-17 14:43:54,Unavailable,Available,It was marked as unavailable in error
+2025-02-17 14:43:58,Available,Unavailable,Not specified
+2025-02-17 14:47:03,Unavailable,Available,It was marked as unavailable in error
+2025-02-17 14:47:06,Available,Unavailable,No staff
+2025-02-17 14:48:36,Unavailable,Available,I was notified it is available
+2025-02-17 14:48:43,Available,Unavailable,No staff
+2025-02-17 14:48:45,Unavailable,Available,It was marked as unavailable in error
+2025-02-17 14:49:29,Available,Unavailable,No staff
+2025-02-17 14:52:51,Unavailable,Available,It was marked as unavailable in error
+2025-02-17 14:53:57,Available,Unavailable,Not specified
+2025-02-17 14:56:11,Unavailable,Available,I was notified it is available
+2025-02-17 14:56:15,Available,Unavailable,No staff
+2025-02-17 14:56:26,Unavailable,Available,It was marked as unavailable in error
+2025-02-17 14:59:03,Available,Unavailable,No staff
