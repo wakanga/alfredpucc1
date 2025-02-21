@@ -5,19 +5,32 @@ import matplotlib.pyplot as plt
 # Identify the latest log file
 logs_dir = "logs"
 log_files = sorted([f for f in os.listdir(logs_dir) if f.endswith(".csv")])
-latest_log = os.path.join(logs_dir, log_files[-1])  # Pick the most recent
+latest_log = os.path.join(logs_dir, log_files[-1])
 
 # Load data
 df = pd.read_csv(latest_log)
 
-# Calculate uptime and downtime
-uptime = df['status'].mean() * 100  # Percentage uptime
-downtime = 100 - uptime  # Percentage downtime
+# Convert Timestamp to datetime
+df['Timestamp'] = pd.to_datetime(df['Timestamp'], errors='coerce')
 
-# Generate visualizations
-plt.pie([uptime, downtime], labels=['Uptime', 'Downtime'], autopct='%1.1f%%')
-plt.title('PUCC Uptime vs. Downtime')
-plt.savefig('uptime_downtime_pie.png')
+# Calculate manual transitions from Available to Unavailable
+manual_transitions = df[(df['Previous Status'] == 'Available') &
+                        (df['New Status'] == 'Unavailable') &
+                        (~df['Reason'].str.contains("Auto-switch", na=False))]
+
+total_manual_transitions = len(manual_transitions)
+reason_counts = manual_transitions['Reason'].value_counts()
+
+# Generate visualization
+plt.figure(figsize=(10, 6))
+reason_counts.plot(kind='bar', color='steelblue')
+plt.title('Manual Reasons for PUCC Status Change')
+plt.xlabel('Reason')
+plt.ylabel('Count')
+plt.xticks(rotation=45)
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+plt.tight_layout()
+plt.savefig('manual_reasons_bar.png')
 
 # Generate HTML report
 html_report = f"""
@@ -29,11 +42,13 @@ html_report = f"""
 <body>
   <h1>PUCC Log Analysis Report</h1>
   <h2>Summary Statistics</h2>
-  <p>Uptime: {uptime:.2f}%</p>
-  <p>Downtime: {downtime:.2f}%</p>
-
+  <p>Total manual transitions (Available → Unavailable): {total_manual_transitions}</p>
+  
+  <h2>Reasons Breakdown</h2>
+  {reason_counts.to_frame().to_html()}
+  
   <h2>Visualizations</h2>
-  <img src="uptime_downtime_pie.png" alt="Uptime/Downtime Pie Chart">
+  <img src="manual_reasons_bar.png" alt="Manual Reasons Bar Chart">
 </body>
 </html>
 """
