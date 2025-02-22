@@ -22,7 +22,7 @@ jobs:
 
       - name: Fetch Latest Logs from GitHub
         run: |
-          git pull origin main
+          git pull origin master #or main if you prefer this branch instead
           ls logs/
 
       - name: Install Dependencies
