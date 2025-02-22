@@ -5,3 +5,9 @@ Timestamp,Previous Status,New Status,Reason
 2025-02-22 19:17:28,Available,Unavailable,Not specified
 2025-02-22 19:17:29,Unavailable,Available,Marked unavailable in error
 2025-02-22 19:17:30,Available,Unavailable,Marked available in error
+2025-02-22 20:17:30,Unavailable,Available,Auto-reset after countdown
+2025-02-22 21:00:03,Available,Unavailable,Auto-switch at configured time
+2025-02-22 21:13:53,Unavailable,Available,Marked unavailable in error
+2025-02-22 21:13:56,Available,Unavailable,Full
+2025-02-22 21:14:22,Unavailable,Available,I was notified it is available
+2025-02-22 21:26:37,Available,Unavailable,Full
