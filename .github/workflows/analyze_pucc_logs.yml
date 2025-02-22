@@ -1,0 +1,48 @@
+name: Analyze PUCC Logs
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs daily at 00:00 UTC (midnight)
+  workflow_dispatch:
+
+permissions:
+  contents: write  # Allows GitHub Actions to push reports to GitHub Pages
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set Up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.9'
+
+      - name: Fetch Latest Logs from GitHub
+        run: |
+          git pull origin main
+          ls logs/
+
+      - name: Install Dependencies
+        run: pip install pandas matplotlib requests
+
+      - name: Run Log Analysis
+        run: python analyze_pucc_logs.py
+
+      - name: Upload Analysis Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: pucc-analysis-report
+          path: |
+            pucc_analysis_report.html
+            daily_downtime.png
+            daily_uptime_percentage.png
+
+      - name: Deploy HTML Report to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
+          destination_dir: report
