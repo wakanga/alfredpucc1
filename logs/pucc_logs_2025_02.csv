@@ -18,3 +18,6 @@ Timestamp,Previous Status,New Status,Reason
 2025-02-23 09:57:31,Unavailable,Available,Marked unavailable in error
 2025-02-23 09:57:32,Available,Unavailable,Full
 2025-02-23 10:57:32,Unavailable,Available,Auto-reset after countdown
+2025-02-23 12:34:00,Available,Unavailable,Not specified
+2025-02-23 13:34:00,Unavailable,Available,Auto-reset after countdown
+2025-02-23 17:33:14,Available,Unavailable,Full
