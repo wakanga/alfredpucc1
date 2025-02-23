@@ -20,7 +20,7 @@ daily_downtime = df[df['New Status'] == 'Unavailable'].groupby('Date')['Duration
 daily_status_counts = df.groupby(['Date', 'New Status']).size().unstack(fill_value=0)
 daily_status_counts['Uptime %'] = (daily_status_counts['Available'] / (daily_status_counts['Available'] + daily_status_counts['Unavailable'])) * 100
 
-# Generate visualizations
+# Generate visualizations with increased margin
 plt.figure(figsize=(10, 5))
 daily_downtime.plot(kind='bar', color='darkred')
 plt.xlabel("Date")
@@ -28,6 +28,7 @@ plt.ylabel("Total Minutes Offline")
 plt.title("PUCC Daily Downtime (Minutes)")
 plt.xticks(rotation=45)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
+plt.subplots_adjust(bottom=0.2)  # Increase bottom margin
 plt.savefig("daily_downtime.png")
 
 plt.figure(figsize=(10, 5))
@@ -37,7 +38,13 @@ plt.ylabel("Uptime Percentage")
 plt.title("Daily PUCC Uptime %")
 plt.xticks(rotation=45)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
+plt.subplots_adjust(bottom=0.2)  # Increase bottom margin
 plt.savefig("daily_uptime_percentage.png")
+
+# Create table of available-to-unavailable changes and times
+availability_changes = df[df['New Status'] == 'Unavailable'].copy()
+availability_changes['Change Time'] = availability_changes['Timestamp'].dt.strftime('%Y-%m-%d %H:%M:%S')
+availability_table_html = availability_changes[['Timestamp', 'Date', 'Change Time', 'New Status']].to_html(index=False)
 
 # Convert downtime and uptime data to HTML tables
 daily_downtime_html = daily_downtime.to_frame().rename(columns={"Duration": "Total Minutes Offline"}).to_html()
@@ -70,6 +77,10 @@ html_report = f"""
   <p>This table shows the percentage of time PUCC was available each day.</p>
   {daily_uptime_html}
   <img src="daily_uptime_percentage.png" alt="Daily Uptime %">
+
+  <h2>Availability Changes</h2>
+  <p>This table shows all available-to-unavailable changes and their times.</p>
+  {availability_table_html}
 </body>
 </html>
 """
