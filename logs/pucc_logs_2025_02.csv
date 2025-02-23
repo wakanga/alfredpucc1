@@ -11,3 +11,10 @@ Timestamp,Previous Status,New Status,Reason
 2025-02-22 21:13:56,Available,Unavailable,Full
 2025-02-22 21:14:22,Unavailable,Available,I was notified it is available
 2025-02-22 21:26:37,Available,Unavailable,Full
+2025-02-23 08:00:53,Unavailable,Available,Auto-switch at configured time
+2025-02-23 08:08:17,Available,Unavailable,Marked available in error
+2025-02-23 08:40:32,Unavailable,Available,I was notified it is available
+2025-02-23 08:40:40,Available,Unavailable,Not specified
+2025-02-23 09:57:31,Unavailable,Available,Marked unavailable in error
+2025-02-23 09:57:32,Available,Unavailable,Full
+2025-02-23 10:57:32,Unavailable,Available,Auto-reset after countdown
