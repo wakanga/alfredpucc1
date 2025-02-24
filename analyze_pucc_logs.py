@@ -41,16 +41,31 @@ plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.subplots_adjust(bottom=0.2)  # Increase bottom margin
 plt.savefig("daily_uptime_percentage.png")
 
-# Create table of available-to-unavailable changes and times
-availability_changes = df[df['New Status'] == 'Unavailable'].copy()
+# Filter out specific reasons and add a new pie chart
+filtered_reasons = df[df['Reason'].isin(['full', 'no staff', 'not specified'])]
+reason_counts = filtered_reasons['Reason'].value_counts()
+
+plt.figure(figsize=(8, 8))
+reason_counts.plot(kind='pie', autopct='%1.1f%%', startangle=90)
+plt.title("Proportion of Unavailability Reasons")
+plt.ylabel("")
+plt.savefig("availability_reasons.png")
+
+# Create table of available-to-unavailable changes and times with reason column
+availability_changes = df[(df['New Status'] == 'Unavailable') & 
+                          (~df['Reason'].isin(['Auto-switch at configured time', 'auto reset after countdown']))].copy()
 availability_changes['Change Time'] = availability_changes['Timestamp'].dt.strftime('%Y-%m-%d %H:%M:%S')
-availability_table_html = availability_changes[['Timestamp', 'Date', 'Change Time', 'New Status']].to_html(index=False)
+availability_table_html = availability_changes[['Timestamp', 'Date', 'Change Time', 'New Status', 'Reason']].to_html(index=False)
 
 # Convert downtime and uptime data to HTML tables
 daily_downtime_html = daily_downtime.to_frame().rename(columns={"Duration": "Total Minutes Offline"}).to_html()
 daily_uptime_html = daily_status_counts[['Uptime %']].to_html()
 
-# Generate HTML report
+# Generate HTML report with summary section
+total_downtime = daily_downtime.sum()
+average_uptime = daily_status_counts['Uptime %'].mean()
+most_common_reason = reason_counts.idxmax() if not reason_counts.empty else 'N/A'
+
 html_report = f"""
 <!DOCTYPE html>
 <html>
@@ -67,23 +82,4 @@ html_report = f"""
   </style>
 </head>
 <body>
-  <h1>PUCC Log Analysis Report</h1>
-  <h2>Daily PUCC Downtime (Minutes)</h2>
-  <p>The table below shows how long PUCC was unavailable each day.</p>
-  {daily_downtime_html}
-  <img src="daily_downtime.png" alt="Daily Downtime">
-
-  <h2>Daily PUCC Uptime Percentage</h2>
-  <p>This table shows the percentage of time PUCC was available each day.</p>
-  {daily_uptime_html}
-  <img src="daily_uptime_percentage.png" alt="Daily Uptime %">
-
-  <h2>Availability Changes</h2>
-  <p>This table shows all available-to-unavailable changes and their times.</p>
-  {availability_table_html}
-</body>
-</html>
-"""
-
-with open("pucc_analysis_report.html", "w") as f:
-    f.write(html_report)
+ 
