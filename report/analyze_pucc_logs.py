@@ -11,6 +11,10 @@ latest_log = os.path.join(logs_dir, log_files[-1])
 df = pd.read_csv(latest_log)
 df['Timestamp'] = pd.to_datetime(df['Timestamp'], errors='coerce')
 df['Date'] = df['Timestamp'].dt.date
+df['Hour'] = df['Timestamp'].dt.hour
+
+# Filter out expected downtime between 21:00 and 08:00
+df = df[~((df['Hour'] >= 21) | (df['Hour'] < 8))]
 
 # Calculate total downtime per day
 df['Duration'] = df['Timestamp'].diff().dt.total_seconds().div(60)  # Convert to minutes
