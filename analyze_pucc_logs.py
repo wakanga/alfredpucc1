@@ -82,4 +82,32 @@ html_report = f"""
   </style>
 </head>
 <body>
- 
+  <h1>PUCC Log Analysis Report</h1>
+  <h2>Summary</h2>
+  <p>Total Downtime: {total_downtime:.2f} minutes</p>
+  <p>Average Uptime Percentage: {average_uptime:.2f}%</p>
+  <p>Most Common Reason for Unavailability: {most_common_reason}</p>
+
+  <h2>Daily PUCC Downtime (Minutes)</h2>
+  <p>The table below shows how long PUCC was unavailable each day.</p>
+  {daily_downtime_html}
+  <img src="daily_downtime.png" alt="Daily Downtime">
+
+  <h2>Daily PUCC Uptime Percentage</h2>
+  <p>This table shows the percentage of time PUCC was available each day.</p>
+  {daily_uptime_html}
+  <img src="daily_uptime_percentage.png" alt="Daily Uptime %">
+
+  <h2>Proportion of Unavailability Reasons</h2>
+  <p>This chart shows the proportion of unavailability reasons.</p>
+  <img src="availability_reasons.png" alt="Availability Reasons">
+
+  <h2>Availability Changes</h2>
+  <p>This table shows all available-to-unavailable changes and their times.</p>
+  {availability_table_html}
+</body>
+</html>
+"""
+
+with open("pucc_analysis_report.html", "w") as f:
+    f.write(html_report)
